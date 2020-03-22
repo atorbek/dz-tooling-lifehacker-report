@@ -61,21 +61,96 @@
 3 раза скачивается файла `adfox-adx-stub.html`, 2 раза `zrt_lookup.html`, рис 11
 ![docs](images/docs.png)
 
-Лишний размер ресурса у файла `oblozhka-2_1584027252.jpg`, его можно сжать, рис 12
-![bigfile](images/bigfile.png)
-
 ##### Лишний размер ресурса
 
+Лишний размер ресурса у файла `oblozhka-2_1584027252.jpg`, возможно, его можно сжать, рис 12
+![bigfile](images/bigfile.png)
 
+Лишние CSS, которые нигде не используются, см. json ниже:
+
+```json 
+  {
+    "url": "https://lifehacker.ru/wp-content/themes/lifehacker/static/styles/vendors.min.css?ver=1.6.0",
+    "wastedBytes": 32231,
+    "wastedPercent": 94.79176415535798,
+    "totalBytes": 34002
+  },
+  {
+    "url": "https://lifehacker.ru/wp-content/themes/lifehacker/static/styles/all.min.css?ver=1.6.0",
+    "wastedBytes": 25624,
+    "wastedPercent": 88.40576618093633,
+    "totalBytes": 28984
+  }
+```
 
 ##### Медленно загружающиеся ресурсы
 
 Относительно долго загружаются изображения `1-3_1582816576.jpg` - 4.95 сек.,
- `oblozhka-2_1584027252.jpg` - 4.56 сек, рис 13. 1 изображение вести в 3 раза
+ `oblozhka-2_1584027252.jpg` - 4.56 сек, рис 13. 1 изображение весит в 3 раза
  меньше 2-го, но по времени, загружается почти столько же.
 ![load images](images/loadimages.png)
 
 ##### Ресурсы, блокирующие загрузку 
+
+Аудит отчет показал, какие ресурсы блокируют рендеринг страницы, см. json ниже.
+ 
+```json 
+  {
+    "url": "https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700|Roboto:300,300i,400,400i,500,500i,700,900&subset=cyrillic",
+    "totalBytes": 1745,
+    "wastedMs": 887
+  },
+  {
+    "url": "https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css",
+    "totalBytes": 7290,
+    "wastedMs": 1096
+  },
+  {
+    "url": "https://lifehacker.ru/wp-content/plugins/lh-slider/static/public/all.min.css?ver=1.0.0",
+    "totalBytes": 7664,
+    "wastedMs": 300
+  },
+  {
+    "url": "https://lifehacker.ru/wp-content/plugins/lh-spoilers/inc/bbspoiler.css?ver=5.1.4",
+    "totalBytes": 2823,
+    "wastedMs": 150
+  },
+  {
+    "url": "https://lifehacker.ru/wp-content/themes/lifehacker/static/styles/vendors.min.css?ver=1.6.0",
+    "totalBytes": 34002,
+    "wastedMs": 750
+  },
+  {
+    "url": "https://lifehacker.ru/wp-content/themes/lifehacker/static/styles/all.min.css?ver=1.6.0",
+    "totalBytes": 28984,
+    "wastedMs": 300
+  },
+  {
+    "url": "https://cdn-images.mailchimp.com/embedcode/classic-10_7.css?ver=1.6.0",
+    "totalBytes": 1721,
+    "wastedMs": 879
+  },
+  {
+    "url": "https://lifehacker.ru/wp-content/plugins/lh-widgets/css/widgets.css?ver=66",
+    "totalBytes": 3008,
+    "wastedMs": 150
+  },
+  {
+    "url": "https://lifehacker.ru/wp-includes/js/jquery/jquery.js?ver=1.12.4",
+    "totalBytes": 34002,
+    "wastedMs": 150
+  },
+  {
+    "url": "https://lifehacker.ru/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1",
+    "totalBytes": 6643,
+    "wastedMs": 150
+  },
+  {
+    "url": "https://yastatic.net/pcode/adfox/loader.js",
+    "totalBytes": 48766,
+    "wastedMs": 1518
+  }
+```
 
 #### На вкладке Performance
 
@@ -97,7 +172,6 @@
 - Painting - 252 мс.
 
 #### На вкладке Coverage
-
 
 Измерил кол-во неиспользованного css и js в ходе загрузки страницы, рис 13
 
@@ -123,6 +197,9 @@ experiments, выставил CPU 4x).
 
 ##### Лишний размер ресурса
 
+Лишний размер ресурсов у тех же файлов, что и при анализе выше.
+Тоже самое касается и неиспользуемых css.
+
 ##### Медленно загружающиеся ресурсы
 
 Изображения, которые загружались долго, стали загружаться напорядок дольше, рис 14
@@ -130,6 +207,8 @@ experiments, выставил CPU 4x).
 ![load images](images/cover-and-oblozhka.png)
 
 ##### Ресурсы, блокирующие загрузку 
+
+Те же ресурсы, что и при анализе выше.
 
 #### На вкладке Performance
 
