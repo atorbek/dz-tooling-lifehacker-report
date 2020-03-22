@@ -1,0 +1,11 @@
+{
+  "name": "shri-2020-task-1",
+  "version": "0.0.1",
+  "description": "",
+  "main": "src/index.js",
+  "author": "atorbek",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^6.7.2"
+  }
+}
