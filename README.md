@@ -38,7 +38,7 @@
 ![adfox-adx-stub.js](images/adfox-adx-stub.png)
 
 5 раз скачивается файл `adsbygoogle.js`, рис. 4
-![adsbygoogle.js](images/adsbygoogle.png)
+![adsbygoogle.js](images/adsbygoogle.png)   
 
 3 раза скачался файл `cookie.js`, рис. 5
 ![cookie.js](images/cookiejs.png)
